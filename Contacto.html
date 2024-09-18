@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=TU_CLAVE_DE_API&callback=console.debug&libraries=maps,marker&v=beta"></script>
+    <link rel="stylesheet" href="contacto.css">
+</head>
+<body>
+    <div class="spinner-container show" id="spinner">
+        <div class="spinner"></div>
+    </div>
+    <script src="scrip.js"></script>
+    
+    <header>
+        <a href="#" class="logo">
+            <img src="logo.png" alt="Logo">
+        </a>
+        <ul class="navbar">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#Somos">Quienes Somos</a></li>
+            <li><a href="Proyectos.html">Proyectos</a></li>
+            <li><a href="Servicios.html">Servicios</a></li>
+            <li><a href="Contacto.html">Contacto</a></li>
+        </ul>
+    </header>
+
+    <div class="container">
+        <h1>Contáctanos</h1>
+        <form id="contact-form">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="lastname">Apellido:</label>
+                <input type="text" id="lastname" name="lastname" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Número de contacto:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Localidad:</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+        <div id="form-message" class="form-message"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
