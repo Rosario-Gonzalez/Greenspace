@@ -63,6 +63,30 @@ observer.observe(marcadorDeCarga);
 
 // Llamar a la función inicial para cargar los primeros artículos
 cargarArticulos();
+
+    // Configuración del Intersection Observer para cargar las imágenes
+const imagenesLazy = document.querySelectorAll('.imagen-lazy');
+
+const cargarImagenes = (entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const imagen = entry.target;
+            imagen.src = imagen.dataset.src;  // Cargamos la imagen
+            imagen.onload = () => {
+                imagen.classList.add('loaded');  // Añadir la clase para transición
+            };
+            observer.unobserve(imagen);  // Dejamos de observar la imagen una vez cargada
+        }
+    });
+};
+
+// Crear el Intersection Observer para las imágenes
+const observerImagenes = new IntersectionObserver(cargarImagenes, { threshold: 0.1 });
+
+// Comenzamos a observar las imágenes
+imagenesLazy.forEach(imagen => {
+    observerImagenes.observe(imagen);
+});
     // Manejo del formulario
     const form = document.getElementById("contact-form");
     const formMessage = document.createElement('div'); // Crear un contenedor para el mensaje
