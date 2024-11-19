@@ -1,19 +1,26 @@
 document.addEventListener("DOMContentLoaded", function() {
-// Mostrar el spinner cuando la página se está cargando
-window.addEventListener('load', function () {
-    // Ocultar el spinner después de que todo el contenido se haya cargado
-    const spinner = document.getElementById('spinner');
-    spinner.style.display = 'none';  // Oculta el spinner
-});
+// Configuración del Intersection Observer para cargar las imágenes
+const imagenesLazy = document.querySelectorAll('.imagen-lazy');
 
-// Mostrar el spinner cuando se hace clic en un enlace o botón
-const buttons = document.querySelectorAll('a, button');
-
-buttons.forEach(button => {
-    button.addEventListener('click', function () {
-        const spinner = document.getElementById('spinner');
-        spinner.style.display = 'flex';  // Muestra el spinner
+const cargarImagenes = (entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const imagen = entry.target;
+            imagen.src = imagen.dataset.src;  // Cargamos la imagen
+            imagen.onload = () => {
+                imagen.classList.add('loaded');  // Añadir la clase para transición
+            };
+            observer.unobserve(imagen);  // Dejamos de observar la imagen una vez cargada
+        }
     });
+};
+
+// Crear el Intersection Observer para las imágenes
+const observerImagenes = new IntersectionObserver(cargarImagenes, { threshold: 0.1 });
+
+// Comenzamos a observar las imágenes
+imagenesLazy.forEach(imagen => {
+    observerImagenes.observe(imagen);
 });
 
 
