@@ -1,12 +1,26 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Mostrar el spinner cuando la página se está cargando
+    /// Simula una carga diferida
+function loadContent() {
     const spinner = document.getElementById('spinner');
-    spinner.style.display = 'flex';  // Muestra el spinner
+    const content = document.getElementById('content');
 
-    // Ocultar el spinner después de un tiempo
-    setTimeout(function() {
-        spinner.style.display = 'none';  // Oculta el spinner
-    }, 2000); // Ajusta el tiempo en milisegundos (2000ms = 2 segundos)
+    // Simula un tiempo de carga (por ejemplo, 3 segundos)
+    setTimeout(() => {
+        // Oculta el spinner
+        spinner.style.display = 'none';
+        
+        // Muestra el contenido
+        content.style.display = 'block';
+        content.innerHTML = `
+            <h1>¡Contenido Cargado!</h1>
+            <p>Este es el contenido que se ha cargado de forma diferida.</p>
+        `;
+    }, 3000); // 3 segundos de demora
+}
+
+// Llama a la función cuando se cargue la página
+window.addEventListener('load', loadContent);
+
 
     // Manejo del formulario
     const form = document.getElementById("contact-form");
