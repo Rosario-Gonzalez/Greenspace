@@ -1,11 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
-   fetch('https://jsonplaceholder.typicode.com/posts/1')
-    .then(response => response.json())
-    .then(data => {
-        spinner.style.display = 'none';
-        content.style.display = 'block';
-        content.innerHTML = <h1>${data.title}</h1><p>${data.body}</p>;
+// Mostrar el spinner cuando la página se está cargando
+window.addEventListener('load', function () {
+    // Ocultar el spinner después de que todo el contenido se haya cargado
+    const spinner = document.getElementById('spinner');
+    spinner.style.display = 'none';  // Oculta el spinner
+});
+
+// Mostrar el spinner cuando se hace clic en un enlace o botón
+const buttons = document.querySelectorAll('a, button');
+
+buttons.forEach(button => {
+    button.addEventListener('click', function () {
+        const spinner = document.getElementById('spinner');
+        spinner.style.display = 'flex';  // Muestra el spinner
     });
+});
 
 
 
