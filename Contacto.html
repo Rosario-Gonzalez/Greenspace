@@ -8,52 +8,25 @@
     <link rel="stylesheet" href="contacto.css">
 </head>
 <body>
-     <form target="_blank" action="https://formsubmit.co/loli03gonzalez@gmail.com" method="POST">
-    <div class="spinner-container show" id="spinner">
-        <div class="spinner"></div>
+   <div class="container">
+  <h1>FormSubmit Demo</h1>
+  <form target="_blank" action="https://formsubmit.co/loli03gonzalez@gmail.com" method="POST">
+    <div class="form-group">
+      <div class="form-row">
+        <div class="col">
+          <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+        </div>
+        <div class="col">
+          <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+        </div>
+      </div>
     </div>
-    <script src="scrip.js"></script>
-    
-    <header>
-        <a href="#" class="logo">
-            <img src="logo.png" alt="Logo">
-        </a>
-        <ul class="navbar">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="#Somos">Quienes Somos</a></li>
-            <li><a href="Proyectos.html">Proyectos</a></li>
-            <li><a href="Servicios.html">Servicios</a></li>
-            <li><a href="Contacto.html">Contacto</a></li>
-        </ul>
-    </header>
-
-    <div class="container">
-        <h1>Contáctanos</h1>
-        <form id="contact-form">
-            <div class="form-group">
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="lastname">Apellido:</label>
-                <input type="text" id="lastname" name="lastname" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Número de contacto:</label>
-                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-            </div>
-            <div class="form-group">
-                <label for="location">Localidad:</label>
-                <input type="text" id="location" name="location" required>
-            </div>
-            <button type="submit">Enviar</button>
-        </form>
-        <div id="form-message" class="form-message"></div>
+    <div class="form-group">
+      <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
     </div>
+    <button type="submit" class="btn btn-lg btn-dark btn-block">Submit Form</button>
+  </form>
+</div>
     
     <script src="script.js"></script>
 </body>
